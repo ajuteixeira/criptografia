@@ -42,9 +42,9 @@ const App = () => {
     if (secondValue.length > 5)
       return 'Valor encriptado é maior do que permitido';
     if (invalidInputString(firstValue))
-      return 'Valor original possui caracteres invalidos';
+      return 'Valor original possui caracteres inválidos';
     if (invalidInputString(secondValue))
-      return 'Valor encriptado possui caracteres invalidos';
+      return 'Valor encriptado possui caracteres inválidos';
   };
 
   const processKey = (firstValue, secondValue) => {
@@ -166,7 +166,7 @@ const App = () => {
           <textarea name="" id="encrypted-input"></textarea>
           <button onClick={calcCryptoKey}>Calcular chave</button>
         </div>
-        <div class="error-message">{errorMessage}</div>
+        <div class="error-message text-red-600">{errorMessage}</div>
       </div>
       {keyReady && (
         <>
@@ -176,7 +176,9 @@ const App = () => {
               <textarea name="" id="to-encrypt-input"></textarea>
               <button onClick={encryptMessage}>Encriptar</button>
             </div>
-            <div class="error-message">{encryptedErrorMessage}</div>
+            <div class="error-message text-red-600">
+              {encryptedErrorMessage}
+            </div>
             {encryptedMessage && (
               <span class="encrypted-message">{encryptedMessage}</span>
             )}
@@ -188,7 +190,9 @@ const App = () => {
               <textarea name="" id="to-decrypt-input"></textarea>
               <button onClick={decryptMessage}>Decriptar</button>
             </div>
-            <div class="error-message">{decryptedErrorMessage}</div>
+            <div class="error-message text-red-600">
+              {decryptedErrorMessage}
+            </div>
             {decryptedMessage && (
               <span class="decrypted-message">{decryptedMessage}</span>
             )}
