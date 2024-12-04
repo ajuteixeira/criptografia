@@ -133,6 +133,25 @@ const App = () => {
     return value;
   };
 
+  const clearAllInput = () => {
+    [
+      'plain-input',
+      'encrypted-input',
+      'to-encrypt-input',
+      'to-decrypt-input',
+    ].forEach((id) => {
+      const element = document.getElementById(id);
+      element && (element.value = '');
+    });
+
+    setKey([]);
+    setErrorMessage();
+    setEncryptedMessage();
+    setEncryptedErrorMessage();
+    setDecryptedMessage();
+    setDecryptedErrorMessage();
+  };
+
   return (
     <div class="container">
       <div>
@@ -174,6 +193,13 @@ const App = () => {
               <span class="decrypted-message">{decryptedMessage}</span>
             )}
           </div>
+          <button
+            onClick={clearAllInput}
+            id="clearAll"
+            class="mt-8 text-[#7e459b] bg-[#7927bd21] hover:bg-[#7927bd52]"
+          >
+            Limpar tudo
+          </button>
         </>
       )}
     </div>
