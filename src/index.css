@@ -9,22 +9,34 @@
 }
 
 body {
+  padding: 10rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
   background-color: #f1f5f9;
 }
 
-table,
-th,
-td {
-  padding: 5px 8px;
-  text-align: center;
-  color: #666666;
-  border: 1px solid #7927bd52;
+button {
+  padding: 1rem;
+  cursor: pointer;
+  color: #f1f5f9;
+  border: none;
+  background-color: #7e459b;
 }
 
-table {
-  min-width: 45vh;
+button:hover {
+  background-color: #713d8b;
 }
 
-th {
-  background-color: #7927bd21;
+#cryptoanalysis-set,
+#to-encrypt-set,
+#to-decrypt-set {
+  display: flex;
+  gap: 1rem;
+}
+
+textarea {
+  height: 3rem;
+  padding: 10px;
 }

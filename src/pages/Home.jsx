@@ -136,15 +136,15 @@ const App = () => {
   return (
     <div class="container">
       <div>
-        <div>
+        <div class="text-lg font-bold pb-2">
           Criptoanálise{' '}
           {keyReady && (
             <span class="crypto-key">(chave: [{key.join(', ')}])</span>
           )}
         </div>
         <div id="cryptoanalysis-set" class="input-set">
-          <input id="plain-input" type="text" />
-          <input id="encrypted-input" type="text" />
+          <textarea name="" id="plain-input"></textarea>
+          <textarea name="" id="encrypted-input"></textarea>
           <button onClick={calcCryptoKey}>Calcular chave</button>
         </div>
         <div class="error-message">{errorMessage}</div>
@@ -152,9 +152,9 @@ const App = () => {
       {keyReady && (
         <>
           <div>
-            <div>Encriptação</div>
+            <div class="font-bold pb-2 pt-8">Encriptação</div>
             <div id="to-encrypt-set" class="input-set">
-              <input id="to-encrypt-input" type="text" />
+              <textarea name="" id="to-encrypt-input"></textarea>
               <button onClick={encryptMessage}>Encriptar</button>
             </div>
             <div class="error-message">{encryptedErrorMessage}</div>
@@ -164,9 +164,9 @@ const App = () => {
           </div>
 
           <div>
-            <div>Decriptação</div>
+            <div class="font-bold pb-2 pt-8">Decriptação</div>
             <div id="to-decrypt-set" class="input-set">
-              <input id="to-decrypt-input" type="text" />
+              <textarea name="" id="to-decrypt-input"></textarea>
               <button onClick={decryptMessage}>Decriptar</button>
             </div>
             <div class="error-message">{decryptedErrorMessage}</div>
