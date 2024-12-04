@@ -62,7 +62,7 @@ const App = () => {
       .getElementById('to-encrypt-input')
       ?.value?.toLowerCase();
 
-    if (invalidInputString(message)) {
+    if (invalidInputString(message, true)) {
       setEncryptedErrorMessage('Mensagem possui caracteres invalidos');
       setEncryptedMessage();
     } else {
@@ -90,7 +90,7 @@ const App = () => {
       .getElementById('to-decrypt-input')
       ?.value?.toLowerCase();
 
-    if (invalidInputString(message)) {
+    if (invalidInputString(message, true)) {
       setDecryptedErrorMessage('Mensagem possui caracteres invalidos');
       setDecryptedMessage();
     } else {
@@ -113,12 +113,14 @@ const App = () => {
     }
   };
 
-  const invalidInputString = (input) => {
+  const invalidInputString = (input, ignoreWhiteSpace = false) => {
     let invalid = false;
 
     for (let i = 0; i < input.length; i++) {
       if (invalid) break;
       const currentCharCode = input.charCodeAt(i);
+
+      if (input[i] === ' ' && ignoreWhiteSpace) continue;
 
       invalid = currentCharCode < letterA || currentCharCode > letterZ; // Menor que "a" ou maior que "z"
     }
@@ -156,7 +158,7 @@ const App = () => {
     <div class="container">
       <div>
         <div class="text-lg font-bold pb-2">
-          Criptoanálise{' '}
+          Criptoanálise
           {keyReady && (
             <span class="crypto-key">(chave: [{key.join(', ')}])</span>
           )}
