@@ -38,9 +38,6 @@ const App = () => {
     if (!secondValue) return 'Valor encriptado faltando';
     if (firstValue.length != secondValue.length)
       return 'Valores de tamanhos irregulares';
-    if (firstValue.length > 5) return 'Valor original é maior do que permitido';
-    if (secondValue.length > 5)
-      return 'Valor encriptado é maior do que permitido';
     if (invalidInputString(firstValue))
       return 'Valor original possui caracteres inválidos';
     if (invalidInputString(secondValue))
@@ -50,7 +47,9 @@ const App = () => {
   const processKey = (firstValue, secondValue) => {
     let temporaryKey = [];
 
-    for (let i = 0; i < firstValue.length; i++) {
+    const keySize = firstValue.length < 5 ? firstValue.length : 5;
+
+    for (let i = 0; i < keySize; i++) {
       temporaryKey.push(secondValue.charCodeAt(i) - firstValue.charCodeAt(i));
     }
 
