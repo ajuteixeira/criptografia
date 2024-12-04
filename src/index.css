@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Space Mono";
+}
+
+body {
+  background-color: #f1f5f9;
+}
+
+table,
+th,
+td {
+  padding: 5px 8px;
+  text-align: center;
+  color: #666666;
+  border: 1px solid #7927bd52;
+}
+
+table {
+  min-width: 45vh;
+}
+
+th {
+  background-color: #7927bd21;
+}
